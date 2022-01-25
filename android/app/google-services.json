@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "148538331120",
+    "project_id": "auxsigninnotification",
+    "storage_bucket": "auxsigninnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148538331120:android:a36d9dce18a702604b9735",
+        "android_client_info": {
+          "package_name": "com.auxsignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148538331120-i7tjkr68o32gthfa7u16ckobhkgo8mm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnmMv1eZvy-PuOgBZjczi8V_EUDgOhsHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148538331120-i7tjkr68o32gthfa7u16ckobhkgo8mm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
