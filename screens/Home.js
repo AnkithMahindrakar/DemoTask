@@ -1,9 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, Image, Button, PixelRatio} from 'react-native';
 
 export default function Home(props) {
+  // const Font = PixelRatio.getFontScale();
   const user = props.user;
-  console.log('inAuthenticated', user);
+  console.log('inAuthenticated', user.user);
+  // console.log('Font', Font);
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>You're Logged In</Text>

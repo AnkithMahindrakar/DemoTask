@@ -10,8 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-firebase/app": "^14.2.4",
-    "@react-native-firebase/messaging": "^14.2.4",
+    "@react-native-firebase/app": "^14.3.0",
+    "@react-native-firebase/dynamic-links": "^14.3.0",
+    "@react-native-firebase/messaging": "^14.3.0",
     "@react-native-google-signin/google-signin": "^7.0.4",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",

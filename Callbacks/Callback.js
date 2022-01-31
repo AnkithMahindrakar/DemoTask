@@ -50,7 +50,7 @@ export const signOut = async () => {
 const getCurrentUserInfo = async () => {
   try {
     const userInfo = await GoogleSignin.signInSilently();
-    console.log('inCallBacks', userInfo);
+    // console.log('inCallBacks', userInfo);
     return userInfo;
   } catch (error) {
     if (error.code === statusCodes.SIGN_IN_REQUIRED) {

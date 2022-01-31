@@ -29,6 +29,13 @@
             {
               "client_id": "148538331120-i7tjkr68o32gthfa7u16ckobhkgo8mm8.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "148538331120-uu7glhnuf6975q3251q8imqt3i4o6h7d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.AuxSignin"
+              }
             }
           ]
         }
