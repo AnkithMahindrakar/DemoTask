@@ -6,8 +6,6 @@ import Login from './Login';
 import {signIn, signOut, isSignedIn} from '../Callbacks/Callback';
 import {webClient_ID, iOSClient_ID} from '../Helper/constant';
 import messaging from '@react-native-firebase/messaging';
-import dynamicLinks from '@react-native-firebase/dynamic-links';
-import CallSceen from './CallScreen';
 
 const InitialScreen = props => {
   const [user, setUser] = useState(null);
@@ -15,26 +13,15 @@ const InitialScreen = props => {
   const [notificationData, setNotificationData] = useState();
   const [routeName, setRouteName] = useState('');
 
-  // .then(link => {
-  //   if (link.url === 'https://auxsignin.page.link/aux2') {
-  //     // ...set initial route as offers screen
-  //     console.log('Dynamic link');
-  //     props.navigation.navigate('CallScreen');
-  //   }
-  // });
-
   useEffect(() => {
     Linking.getInitialURL().then(url => {
       console.log('new Deep linking', url);
       navigateHandler(url);
     });
-    // if (Platform.OS === 'ios') {
     const unsubscribe = Linking.addEventListener('url', handleOpenURL);
-    // }
 
     return () => {
       unsubscribe;
-      // unsubscribe2;
     };
   }, []);
   const handleOpenURL = event => {
@@ -42,17 +29,9 @@ const InitialScreen = props => {
   };
   const navigateHandler = async url => {
     if (url) {
-      // props.navigation.navigate('')
       const route = url.match(/\/([^\/]+)\/?$/)[1];
       console.log('Route on', route);
       props.navigation.navigate(route);
-      // const {navigate} = props.navigation;
-      // console.log('navigation handler,', url);
-      // navigate('CallSceen');
-      // const route = url.replace(/.*?:\/\//g, '');
-      // const id = route.match(/\/([^\/]+)\/?$/)[1];
-      // const post = posts.find(item => item.id === id);
-      // navigate('Post', {post: post});
     }
   };
 
@@ -86,24 +65,8 @@ const InitialScreen = props => {
         const urlLink = remoteMessage.data.link;
         const routing = urlLink.match(/\/([^\/]+)\/?$/)[1];
         setRouteName(routing);
-        console.log('=====', urlLink, '=====', routing);
+        // console.log('=====', urlLink, '=====', routing);
       });
-
-      // const link = async () => await dynamicLinks().getInitialLink();
-      // console.log('link', link);
-      // .then(link => console.log('link', link));
-      // const unsubscribe2 = messaging().setBackgroundMessageHandler(
-      //   async remoteMessage => {
-      //     setShowBanner(true);
-      //     setNotificationData(remoteMessage);
-      //     props.navigation.navigate('CallScreen');
-      //     setTimeout(() => setShowBanner(false), 8000);
-      //     console.log(
-      //       'Message handled in the background in intialization!',
-      //       remoteMessage,
-      //     );
-      //   },
-      // );
       return () => {
         unsubscribe;
         // unsubscribe2;
@@ -149,7 +112,10 @@ const InitialScreen = props => {
       showBanner && (
         <TouchableOpacity
           style={styles.notificationContainer}
-          onPress={() => props.navigation.navigate(routeName)}>
+          onPress={() => {
+            setShowBanner(false);
+            props.navigation.navigate(routeName);
+          }}>
           <View style={styles.notificationTitleView}>
             <Text style={styles.notificationTitleTxt}>
               {notificationData?.notification.title}
